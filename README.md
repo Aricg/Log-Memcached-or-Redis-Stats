@@ -8,13 +8,18 @@ Usage
 LogDifferencesMemcached.bash options
 
 OPTIONS:
-        *-h      Show this message
-        *-f      Full path to statitics file 
-        *-i      ipaddress 								Default: 127.0.0.1
-        *-p      port 									Defalt: 11211
-        *-t      Wait Interval between fist and second memcache check 			Default 10 seconds
+        *h      Show this message
+        *f      Full path to statitics file 
+        *i      ipaddress 								
+        *p      port 									
+        *t      Wait Interval between fist and second memcache check 			
+        *o      Which statistics to check, wrapped in quotes seperated by a space 	
 
-        *-o      Which statistics to check, wrapped in quotes seperated by a space 	Default cmd_get
+Defaults:
+	*Ipaddress 127.0.0.1
+	*Port 11211
+	*Wait Interval 10 seconds
+	*Statistic cmd_get
                         
 Resonable Values:
                                 *cmd_get

@@ -14,10 +14,10 @@ usage: $0 options
 This script gathers Memcached statistics twice (defined by the wait interval -t) Then logs the diffrences for the inidcated statistic
 
 OPTIONS:
+        -f      Full path to statitics file 
         -h      Show this message
         -i      ipaddress -Default 127.0.0.1
         -p      port -Defalt 11211
-        -f      Full path to statitics file 
         -t      Wait Interval between fist and second memcache check -Default 10 seconds
         -o      Which statistics to check, wrapped in quotes seperated by a space -Default cmd_get
                         Resonable Values
@@ -36,12 +36,15 @@ Example $0 -f /tmp/memcached_stats -t2 -o "cmd_get cmd_set get_hits get_misses b
 
 EOF
 }
-while getopts :h:i:p:t:f:o: OPTION
+while getopts :f:h:i:p:t:o: OPTION
 do
      case "$OPTION" in
          h)
              usage
              exit 1
+             ;;
+         f)
+             File_name="$OPTARG"
              ;;
          i)
              ipaddress="$OPTARG"
@@ -51,9 +54,6 @@ do
              ;;
          t)
              Per_Seconds="$OPTARG"
-             ;;
-         f)
-             File_name="$OPTARG"
              ;;
          o)
              Options="$OPTARG"

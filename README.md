@@ -38,7 +38,7 @@ Example(s)
 =========
 
 	LogDifferencesMemcached.bash -f /tmp/memcached_stats 
-	LogDifferencesMemcached.bash -f /tmp/memcached_stats -i 0.0.0.0 -t10 -o "cmd_get cmd_set get_hits get_misses bytes_read bytes_written"
+	LogDifferencesMemcached.bash -i 127.0.0.1 -f /var/log/memcached.log -t 10 -o "cmd_get cmd_set get_hits get_misses bytes_read bytes_written"
 
 
 License

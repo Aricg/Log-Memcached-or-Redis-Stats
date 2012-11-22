@@ -5,6 +5,7 @@ Options="cmd_get"
 Per_Seconds=10
 ipaddress=127.0.0.1
 Port=11211
+Choice="memcached"
 
 usage()
 {
@@ -90,7 +91,7 @@ if $(nc -z "$ipaddress" "$Port");
         then
                 echo "Connected, Please wait "$(expr "$Per_Seconds" + 4 )" Seconds"  ;
         else
-                echo "Cannot Connect to Memcached, Exiting"
+                echo "Cannot Connect to "$Choice", Exiting"
                         exit 1;
 fi
 

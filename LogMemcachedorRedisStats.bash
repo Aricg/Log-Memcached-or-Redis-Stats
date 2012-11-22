@@ -34,13 +34,12 @@ OPTIONS: ( -f must be called first )
                                 bytes_written
                                 bytes
                         Redis:
-                                keys 
                                 total_connections_received 
                                 total_commands_processed 
                                 keyspace_hits
 
 Example $0 -f /var/log/memcached.log -i 127.0.0.1 -t 10 -o "cmd_get cmd_set get_hits get_misses bytes_read bytes_written"
-Example $0 -f /var/log/memcached.log -r redis -i 127.0.0.1 -t 10 -o "keys total_connections_received total_commands_processed keyspace_hits"
+Example $0 -f /var/log/redis.log -r redis -i 127.0.0.1 -t 10 -o "keys total_connections_received total_commands_processed keyspace_hits"
 
 EOF
 }
@@ -54,7 +53,6 @@ do
          r)
              Choice="$OPTARG"
              Port=6379
-             Options="keys"
              ;;
          f)
              File_name="$OPTARG"

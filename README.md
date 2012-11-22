@@ -1,16 +1,17 @@
-Log-Diffrences-Memcached-Stats
+Log-Memcached-or-Redis-Stats
 ==============================
 
 This script gathers Memcached statistics twice (defined by the wait interval -t) Then logs the diffrences for the inidicated statistic(s)
 
 Usage
 =====
-	LogDifferencesMemcached.bash options
+	LogMemcachedorRedisStats.bash options
 
 OPTIONS:
 -------
 	-h show this message
 	-f full path to statitics file
+	-r redis or memcached (default is memcached)
 	-i ipaddress 								
 	-p port 									
 	-t wait Interval between fist and second memcache check 			
@@ -18,13 +19,20 @@ OPTIONS:
 
 Defaults:
 --------
+Memcached
 	ipaddress 127.0.0.1
 	port 11211
 	wait Interval 10 seconds
 	statistic cmd_get
-                        
+Redis
+	Port 6379
+	statistic keys
+	ipaddress 127.0.0.1
+	wait Interval 10 seconds
+        
 Posible Statistics:
 -----------------
+Memcached	
 	cmd_get
 	cmd_set
 	get_hits
@@ -33,13 +41,16 @@ Posible Statistics:
 	bytes_read
 	bytes_written
 	bytes
-                        
+Redis
+	keys 
+	total_connections_received 
+	total_commands_processed 
+	keyspace_hits
+         
 Example(s)
 =========
-
-	LogDifferencesMemcached.bash -f /tmp/memcached_stats 
-	LogDifferencesMemcached.bash -i 127.0.0.1 -f /var/log/memcached.log -t 10 -o "cmd_get cmd_set get_hits get_misses bytes_read bytes_written"
-
+	LogMemcachedorRedisStats.bash -f /var/log/memcached.log -i 127.0.0.1 -t 10 -o "cmd_get cmd_set get_hits get_misses bytes_read bytes_written"
+	LogMemcachedorRedisStats.bash -f /var/log/memcached.log -r redis -i 127.0.0.1 -t 10 -o "keys total_connections_received total_commands_processed keyspace_hits"
 
 License
 ------

@@ -1,7 +1,8 @@
 Log-Memcached-or-Redis-Stats
 ==============================
 
-This script gathers Memcached statistics twice (defined by the wait interval -t) Then logs the diffrences for the inidicated statistic(s)
+This script gathers either Memcached info or Redis stats twice (defined by the wait interval -t) Then logs the diffrences for the inidcated statistic
+
 
 Usage
 =====

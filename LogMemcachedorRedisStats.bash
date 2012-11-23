@@ -1,4 +1,7 @@
 #!/bin/bash
+#Path was biting me when running this script via cron.
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH
 #Defaults (memcached)
 File_name=
 Options="cmd_get"

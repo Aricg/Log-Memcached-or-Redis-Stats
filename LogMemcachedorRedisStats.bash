@@ -88,7 +88,7 @@ fi
 
 
 WriteStatsToFile () {
-
+#Netcat is not as portable as I hoped, need to change this check to use netstat
 if $(nc -z "$ipaddress" "$Port");
         then
                 echo "Connected, Please wait "$(expr "$Per_Seconds" + 4 )" Seconds"  ;
